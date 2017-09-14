@@ -1,14 +1,11 @@
-# Word-template_assets
-Macmillan-specific assets for our Word tools macros
+# RS_style_template
+Revised version of Macmillan styles for Word manuscripts, to be deployed with RSuite.
 
-## Styles_Bookmaker.csv
-Single-column list of Macmillan styles that are available in Bookmaker for PDFs. Used by the Bookmaker Check macro. The macro downloads this file each time it is run, so users do not need to get a formal update to use any additions to this list. Any changes committed to `master` are available to the user within 5 minutes (via Confluence-Git connector).
+## Editing Styles
+All data about the styles is stored in *WordTemplateStyles.xlsm*. This includes validation of the entries. See rows 1 and 2 for more detail.
 
-## Styles_Mapping.json
-Maps old Macmillan template style names to new versions. Not currently live but will be added to Cleanup and Character Styles macros. Consists of two objects: `"renamed"` and `"removed"`; both contain `"old style name":"new style name"` pairs.
+## Generating Style Template
+The actual style objects are stored in *macmillan.dotx*. To generate a new *macmillan.dotx*, run *CreateMacmillanTemplate.bat* (PC only), or
+open *StyleTemplateCreator.docm* in Word and run macros *WriteTemplatefromJson* and *WriteNoColorTemplatefromJson"*
 
-## headings.json
-Keys are Macmillan styles that are acceptable section headings. Value is always "False". Used in vba_utilities/genUtils/Reports.bas
-
-## sections.json
-object keys are the FIRST word of Macmillan style-name sections. Each contains an aobject with the heading style that should precede a style in that section, as well as the text of that heading.
+This also writes all of the data in WordTemplateStyles.xlsm to *macmillan.json* so we can track it in a non-binary format.
